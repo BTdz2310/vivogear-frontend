@@ -1,5 +1,6 @@
 {
-  "name": "cellphone101",
+  "name": "vivogear",
+  "homepage":"https://vivogear.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
