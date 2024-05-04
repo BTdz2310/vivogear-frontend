@@ -1,0 +1,55 @@
+.user-notify__line{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: #c5d5f1;
+    padding: 20px 20px;
+    color: black;
+    text-decoration: none;
+    border-radius: 12px;
+}
+
+.user-notify__list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: serif;
+}
+
+.user-notify__read-all{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: right;
+}
+
+.user-notify__read-all p {
+    cursor: pointer;
+    margin: 0!important;
+}
+
+.user-notify__img{
+    width: 20%;
+}
+
+.user-notify__img i{
+    font-size: 40px;
+}
+
+.user-notify__content .user-notify__text{
+    /*width: 80%;*/
+    text-align: left;
+}
+
+.user-notify__content .user-notify__title{
+    text-align: left;
+    font-weight: bold;
+}
+
+.user-notify__content .user-notify__time{
+    /*width: 80%;*/
+    text-align: right;
+}
+
+.user-notify__line--read{
+    opacity: 0.6;
+}

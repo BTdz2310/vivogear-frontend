@@ -1,0 +1,90 @@
+.user-img{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.user-img:hover .user-img__button--in{
+    visibility: visible;
+    /*opacity: 1!important;*/
+}
+
+.user-img:hover>div:not(.user-img__button--in){
+    opacity: 0.8;
+    /*filter: ;*/
+}
+
+.user-img__button--in{
+    padding: 5px 10px;
+    background: linear-gradient(132deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.user-profile__info{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.user-profile__info>div:last-child{
+    text-align: left;
+}
+
+.user-profile__info>div:last-child h4{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.user-profile__info>div:last-child p{
+    font-size: 18px!important;
+}
+
+.user-img__button--out{
+    padding: 5px 10px;
+    margin-top: 10px;
+    background: rgb(245, 245, 245);
+    cursor: pointer;
+}
+
+#avatarChangeUser{
+    display: none;
+}
+
+.__spinner{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-profile__table tr{
+    display: flex;
+    gap: 40px;
+}
+
+.user-profile__table tr td:first-child{
+    text-align: right;
+    width: 50%;
+}
+
+.user-profile__table tr td:last-child{
+    width: 50%;
+    text-align: left;
+    /*padding-left: 20px;*/
+}
+
+.user-profile__table input{
+    padding: 5px 10px;
+}

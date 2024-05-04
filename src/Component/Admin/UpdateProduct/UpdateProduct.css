@@ -1,0 +1,12 @@
+.updateP .item p.name{
+    color: white!important;
+}
+
+.updateP .item{
+    background-color: darkslategrey;
+}
+
+.updateP{
+    margin-top: 40px;
+    padding: 20px 40px;
+}

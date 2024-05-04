@@ -1,0 +1,19 @@
+.changePContainer{
+    display: flex;
+    /*justify-content: space-between;*/
+    padding: 20px 20px;
+    align-items: center;
+    gap: 80px;
+}
+
+.leftChange{
+    width: 100%;
+}
+
+.leftChange>div{
+    margin-bottom: 10px;
+}
+
+.changeProductModal .modal-content{
+    /*width: 900px!important;*/
+}

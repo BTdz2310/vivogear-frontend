@@ -1,0 +1,123 @@
+.home-page{
+    height: 100vh;
+    background-size: 100% 100%;
+    background-image: url("../../../public/wallpaperflare.com_wallpaper.jpg");
+    position: relative;
+}
+
+.home-page .header{
+    background: transparent!important;
+    position: unset;
+    border: none!important;
+}
+
+.home-page .header .header__svg--fill{
+    fill: white;
+}
+
+.home-page .header .header__svg--stroke{
+    stroke: white;
+}
+
+.home-page .header-center__dropdown-menu a{
+    color: black!important;
+}
+
+.home-page__container{
+    /*background-image: linear-gradient(90deg, rgba(44, 62, 80, 0.84), rgba(52, 152, 219, 0.84));*/
+    background-image: linear-gradient(-90deg, rgba(44, 62, 80, 0.84), rgba(47, 72, 88, 0.84));
+    /*background-image: linear-gradient(-90deg, rgba(44, 62, 80, 0.84), rgba(51, 101, 138, 0.84));*/
+    height: 100%;
+    z-index: 1;
+    width: 100%;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+}
+
+.home-page__slogan{
+    margin-left: 80px;
+    height: calc(100vh - 65px);
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home-page__slogan h1{
+    max-width: 500px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 100px!important;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.home-page__slogan h3{
+    font-family: fangsong;
+    font-size: 40px!important;
+    text-transform: capitalize;
+    color: white;
+    width: 70%;
+}
+
+.home-page__slogan>div{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    /*justify-content: space-between;*/
+    /*padding-right: 80px;*/
+}
+
+.home-page__slogan>div a{
+    position: relative;
+    z-index: 10;
+    padding: 20px 40px;
+    text-transform: uppercase;
+    letter-spacing: 3.2px;
+    color: white;
+    text-decoration: none;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: 0.3s all ease-out;
+}
+
+.home-page__slogan>div a::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transition: width .4s ease-in-out;
+    transition: width .4s ease-in-out;
+    background-color: #282c34;
+
+}
+
+.home-page__slogan>div a:hover{
+    /*background-color: ;*/
+    border: 1px solid rgba(40, 44, 52, 0.4);
+}
+
+.home-page__slogan>div a:hover::before{
+    width: 100%;
+}
+
+.home-page__slogan h1 i{
+    text-transform: lowercase;
+}
+
+.home-page__container .header{
+    background: none!important;
+    z-index: 2;
+}
+
+.home-page__container .header a, .home-page__container .header>i{
+    color: white;
+}
+
+/*.homeContainer~header{*/
+/*    background: none;*/
+/*}*/

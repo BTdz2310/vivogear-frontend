@@ -1,0 +1,76 @@
+.admin-task__action .admin-action__table{
+    font-family: sans-serif;
+    background-color: #6fa4e3;
+    color: black;
+    margin: 40px 20px;
+    width: calc(100% - 40px);
+    border-radius: 12px;
+    padding: 20px 0;
+    font-size: 1vw;
+}
+
+.admin-task__action .admin-action__table thead{
+    background-color: #265999;
+    border-radius: 12px;
+    color: white;
+    /*display: flex;*/
+
+}
+
+.admin-task__action .admin-action__table th{
+    text-transform: uppercase;
+    padding: 10px 20px;
+    margin: 0 10px;
+}
+
+.admin-task__action .admin-action__table th i{
+    margin-left: 8px;
+}
+
+.admin-task__action .admin-action__table th:not(.admin-task-container .tblOrderAdmin th:last-child){
+    cursor: pointer;
+}
+
+#iconDown{
+    transform: rotate(180deg);
+}
+
+.admin-task__action .admin-action__table tbody tr:not(.expandTR, .expandTR tr){
+    border-bottom: 1px solid ;
+    cursor: pointer;
+}
+
+.expandTR{
+    border-bottom: 1px solid black;
+}
+.btnExpandOrder{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding:20px 40px;
+    gap: 10px;
+}
+
+.btnExpandOrder button{
+    padding: 10px 20px;
+}
+
+#disabledBtn{
+    background-color: #e0e0e0;
+    color: rgba(16, 16, 16, 0.3)
+}
+
+.contactOrder{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+
+.contactOrder p:first-child{
+    font-weight: bold;
+}
+
+.orderAdm-canceled-btn{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}

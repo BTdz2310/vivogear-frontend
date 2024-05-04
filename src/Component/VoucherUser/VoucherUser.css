@@ -1,0 +1,39 @@
+.user-voucher__add{
+    height: 100px;
+    background-color: #f2f2f2;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.user-voucher__add label{
+    font-size: 20px;
+}
+
+.user-voucher__add input{
+    padding: 10px 20px;
+}
+
+.user-voucher__add button{
+    padding: 10px 20px;
+    background-color: #1b2040;
+    color: white;
+}
+
+.user-voucher__list{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    /*flex-wrap: wrap;*/
+    /*justify-content: center;*/
+    width: 100%;
+}
+
+.user-voucher__list>div{
+    /*flex: 1 0 40%;*/
+    /*flex-basis: 50%;*/
+    /*width: calc(50% - 10px);*/
+}

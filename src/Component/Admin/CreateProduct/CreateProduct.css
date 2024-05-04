@@ -1,0 +1,84 @@
+.createP form{
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.createP input[type='text']{
+    width: 300px;
+    background-color: darkslategrey;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+}
+
+.createP input[type='submit']{
+    background-color: darkcyan;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+}
+
+.createP input[type='text']:focus{
+   border: none;
+}
+
+.createP .dataP{
+    padding: 0 20px;
+}
+
+.createP .item{
+    background-color: darkslategrey;
+}
+
+.createP .item p{
+    color: white!important;
+}
+
+.createP #addLink{
+    background-color: #2e66ce!important;
+}
+
+.inputCreate{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputCreate input{
+    width: 40px!important;
+    text-align: center;
+}
+
+.priceInputCreate::after{
+    content: '$';
+}
+
+input.priceInputCreate{
+    margin-left: 20px!important;
+}
+
+.inputCreate{
+    color: darkcyan;
+}
+
+button.addInputCreate{
+    padding: 0 10px;
+    margin-left: 20px;
+    background-color: darkslategrey;
+    color: white;
+}
+
+.inputCreate .nameInp{
+    display: flex;
+    gap: 10px;
+}
+
+/*.inputCreate:hover .fa-circle-xmark{*/
+/*    !*visibility: visible;*!*/
+/*    opacity: 1;*/
+/*}*/
+
+#checkInputCreate{
+    color: deepskyblue;
+}

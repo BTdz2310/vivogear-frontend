@@ -1,0 +1,79 @@
+.admin-page__container{
+    width: 100vw;
+    background-color: rgb(24, 28, 42);
+    color: rgb(148,152,166);
+    display: flex;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.admin-page__container p{
+    margin: 0;
+}
+
+.admin-page__container .admin-navbar__container{
+    width: 20%;
+    border-right: 2px solid rgb(31, 35, 50);
+    height: 1000px;
+    padding: 0 20px;
+    position: fixed;
+}
+
+.admin-page__container-container p{
+    margin: 0;
+}
+
+.admin-page__container h1{
+    font-size: 32px!important;
+    padding: 10px 0;
+}
+
+.admin-page__container .admin-navbar__head{
+    font-size: 16px;
+    text-transform: uppercase!important;
+    text-align: left;
+    margin: 10px 0;
+    font-family: 'sans-serif';
+
+}
+
+.admin-page__container .admin-navbar__button{
+    font-size: 18px!important;
+    display: flex;
+    gap: 10px;
+    align-content: center;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-family: 'fangsong';
+}
+
+.admin-page__container .admin-navbar__button p{
+    padding: 0;
+}
+
+.admin-page__container .admin-navbar__button i{
+    line-height: 27px;
+}
+
+.admin-page__container .admin-task__container{
+    width: 80%;
+    margin-left: 20%;
+}
+
+#admin-navbar__button--selected{
+    background-color: rgb(50,54,70);
+    border: 1px solid rgb(67,70,86);
+    border-radius: 10px;
+}
+
+.admin-task__head{
+    height: 70px;
+    line-height: 70px;
+    font-size: 20px;
+    border-bottom: 4px solid rgb(31, 35, 50);
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgb(24, 28, 42);
+}

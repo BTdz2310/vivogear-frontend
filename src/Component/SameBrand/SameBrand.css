@@ -1,0 +1,45 @@
+.listContainer{
+    padding: 0 10px;
+    width: 520px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.listContent{
+    
+}
+
+.list{
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    /*max-width: 200px;*/
+    width: 100%;
+}
+
+.list>div{
+    display: flex;  
+    flex-direction: row;
+    gap: 20px;
+}
+
+.list div .alink{
+    /*flex-direction: column;*/
+}
+
+.item{
+    /*outline: none!important;*/
+}
+
+.fa-circle-chevron-right{
+    font-size: 40px;
+    position: absolute;
+    top: 80px;
+    right: -40px;
+    cursor: pointer;
+    opacity: 0;
+    color: rgb(33, 37, 41)
+}
+
+#hien{
+    opacity: 1;
+}

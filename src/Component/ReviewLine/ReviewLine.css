@@ -1,0 +1,45 @@
+.review-line{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 10px;
+    justify-content: center;
+    border-bottom: 1px solid #EBEEF2;
+}
+
+.review-line p{
+    margin: 0;
+}
+
+.review-line-info{
+    width: 25%;
+    text-align: center;
+}
+
+.review-line-name{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.review-line-info img{
+    width: 125px;
+    padding: 10px 0;
+}
+
+.review-line-rating{
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review-line-comment{
+    width: 100%;
+    padding: 10px;
+}
+
+.review-line-send{
+    align-self: end;
+    margin-bottom: 20px;
+}

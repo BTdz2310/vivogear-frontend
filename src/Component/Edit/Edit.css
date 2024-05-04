@@ -1,0 +1,49 @@
+.editContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+input[readonly], select, option{
+    margin-left: 5px!important;
+}
+
+input[readonly][type="text"]{
+    width: 250px;
+}
+
+.leftEdit{
+    width: 100%;
+}
+
+.leftEdit div{
+    margin-bottom: 10px;
+}
+.leftEdit div input[type='number']{
+    width: 100px;
+    margin-left: 5px;
+}
+#checkBox{
+    position: relative;
+    top: 10px;
+    left: 30px;
+}
+
+.rightEdit img{
+    /*height: 241px;*/
+    width: 200px;
+    object-fit: contain;
+}
+
+.selectedPDiv{
+    max-height: 210px;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.selectedPDiv::-webkit-scrollbar{
+    display: none;
+}
+

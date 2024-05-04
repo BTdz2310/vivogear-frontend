@@ -1,0 +1,162 @@
+.loginForm{
+    max-width: 100vw!important;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #ffd89b, #19547b)
+}
+
+.loginForm .card{
+    margin-bottom:20px;
+    border:none;
+}
+
+.loginForm .box {
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #191919;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: 0.25s;
+    /*margin-top: 100px*/
+}
+
+.loginForm .box input[type="text"],
+.loginForm .box input[type="number"],
+.loginForm .box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+.loginForm .box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.loginForm .box input[type="text"]:not(.notW):focus,
+.loginForm .box input[type="password"]:not(.notW):focus,
+.loginForm .box input[type="number"]:focus {
+    width: 300px!important;
+    border-color: #6610f2;
+}
+
+#validTxt{
+    border-color: #2ecc71;
+}
+
+#nvalidTxt{
+    border-color: #a70e13;
+}
+
+.loginForm .box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.loginForm .box input[type="submit"]:hover {
+    background: #2ecc71
+}
+
+.loginForm .signup {
+    text-decoration: underline
+}
+
+.loginForm a.text-muted, .loginForm p.text-muted{
+    color: rgb(108, 117, 125)!important;
+}
+
+.passTxt{
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.passTxt input{
+    box-sizing: content-box;
+    height: 24px;
+}
+
+.hidePass{
+    position: absolute;
+    top: 16px;
+    color: white;
+    right: 16px;
+    cursor: pointer;
+}
+
+#hidePass{
+    display: none;
+}
+
+.login__social--or{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.login__social--line{
+    height: 0.5px;
+    flex-grow: 2;
+    width: 100%;
+    background-color: rgb(108, 117, 125)!important;
+}
+
+.login__social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login__social-container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    width: fit-content;
+}
+
+.login__social button{
+    border-radius: 16px!important;
+}

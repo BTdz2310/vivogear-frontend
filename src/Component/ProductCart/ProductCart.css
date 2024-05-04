@@ -1,0 +1,32 @@
+.cart-line__tooltip .cart-line__tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 100000;
+    top: -28px;
+    right: 10px;
+    /*background-color: red;*/
+}
+
+.cart-line__tooltip:hover .cart-line__tooltiptext {
+    visibility: visible;
+}
+
+.cart-line__tooltip {
+    /*position: relative;*/
+    display: flex;
+    gap: 10px;
+    padding: 0 20px;
+    align-items: center;
+}
+
+.cart-line__tooltip .cart-line__center {
+    flex-grow: 2;
+}

@@ -1,0 +1,106 @@
+.header-right__icon .header-notify__count{
+    position: absolute;
+    background-color: #2aabd2;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    top: -10px;
+    left: 50%;
+    font-family: 'Blinker', sans-serif;
+}
+
+#--read-notify{
+    color: grey;
+}
+
+.header-right__icon svg{
+    position: relative;
+    cursor: pointer;
+}
+
+.header-right__icon .header-notify__table{
+    position: absolute;
+    top: 60px;
+    right: 0;
+    text-align: left;
+    /*opacity: 0;*/
+    width: 360px;
+    box-shadow: 0px 2px 6px 0px rgba(50,50,50,0.33);
+    background-color: white;
+    visibility: hidden;
+    /*transform: translateY(40px);*/
+    /*transition: .2s ease-out;*/
+    z-index: 1;
+}
+
+#--visible{
+    visibility: visible!important;
+    opacity: 1!important;
+}
+
+#--invisible{
+    visibility: hidden;
+    opacity: 0;
+}
+
+.header-notify__line {
+    display: flex;
+    font-size: 14px;
+    gap: 20px;
+    text-decoration: none;
+    /*color: grey;*/
+}
+
+.header-notify__list{
+    margin: 0!important;
+    padding: 10px 10px;
+}
+
+.header-notify__list li{
+    list-style-type: none;
+}
+
+.header-notify__list li a:hover{
+    text-decoration: none;
+}
+
+.header-notify__line .notify-line__text{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.header-notify__list > .header-notify__line:not(:last-child){
+    padding-bottom: 10px;
+    border-bottom: 1px solid grey;
+}
+
+.header-notify__list > .header-notify__line:not(:first-child){
+    padding-top: 10px;
+    /*border-bottom: 1px solid black;*/
+}
+
+.notify-line__time{
+    text-align: right;
+    /*width: fit-content;*/
+    padding-right: 10px;
+    color: grey;
+    font-size: 14px;
+}
+
+.header-notify__read-all{
+    background-color: rgb(35, 82, 124);
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    margin: 0;
+    cursor: pointer;
+}
+
+.header-notify__read-all:hover{
+    text-decoration: underline;
+}

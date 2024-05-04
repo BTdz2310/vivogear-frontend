@@ -1,0 +1,173 @@
+.coupon-item-wrapper {
+    /* mask: radial-gradient(circle, transparent 6px, black 6px) -220px 15.5px; */
+    margin-bottom: 16px;
+    background: #c5d5f1;
+    border-top: 0;
+    position: relative;
+    /*max-width: 450px;*/
+    /* -webkit-mask-position: -6px; */
+    /* mask-position: -6px; */
+    /* overflow: hidden; */
+}
+
+.coupon-item-wrapper::before {
+    background-color: #1b2040;
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.coupon-item-wrapper .coupon-head {
+    position: relative;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 700;
+    color: #1b2040;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 16px 8px;
+    border-left: 0.5px solid #ffe2cf;
+    border-right: 0.5px solid #ffe2cf;
+    height: 120px;
+}
+
+.coupon-item-wrapper .head-right{
+    flex-grow: 10;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.coupon-item-wrapper .head-right p{
+    font-size: 24px!important;
+}
+
+.coupon-item-wrapper .coupon-mid-line {
+    display: flex;
+    align-items: center;
+    height: 14px;
+}
+
+.coupon-item-wrapper .coupon-mid-line div {
+    flex: 1;
+    height: 2px;
+    background-size: 8px 2px;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(90deg,
+    #fff 0,
+    #fff 50%,
+    transparent 0);
+}
+
+.coupon-item-wrapper .coupon-cycle-border {
+    top: 120px;
+    background-color: white;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+}
+
+.coupon-body{
+    /*height: 60px;*/
+    padding-bottom: 10px;
+}
+
+.coupon-item-wrapper .head-left{
+    text-align: left;
+    /*align-self: start;*/
+}
+
+.use-range p{
+    margin: 0;
+}
+
+.coupon-item-wrapper .head-left p, .coupon-item-wrapper .head-left h5{
+    margin: 0;
+}
+
+.coupon-item-wrapper .head-left h5{
+    text-transform: uppercase;
+    font-size: 24px!important;
+    margin-bottom: 20px;
+}
+
+.coupon-item-wrapper .head-left p{
+    font-weight: lighter;
+}
+
+.coupon-code{
+    font-family: "Apple Chancery";
+    text-transform: uppercase;
+    color: crimson;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*line-height: 100%;*/
+}
+
+.coupon-border-left {
+    left: -7px;
+
+}
+
+.coupon-border-right {
+    right: -7px;
+}
+
+.coupon-body li{
+    text-align: left;
+    /*margin-left: 10px;*/
+}
+
+.coupon-body a{
+    color: black;
+    text-decoration: none;
+}
+
+.coupon-body a:hover{
+    text-decoration: underline;
+}
+
+#coupon-date{
+    font-weight: lighter;
+    font-size: 14px!important;
+    text-align: right;
+    margin: 0;
+}
+
+#expiredVoucher{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.tooltipVoucher, .minOtoolTip{
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 10000;
+    position: absolute;
+    padding: 10px 20px;
+    visibility: hidden;
+}
+
+.coupon-item-wrapper:hover .minOtoolTip{
+    visibility: visible;
+}
+
+.tooltipVoucher p{
+    font-size: 12px!important;
+}
+
+.use-range:hover .tooltipVoucher{
+    visibility: visible;
+}

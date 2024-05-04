@@ -1,0 +1,17 @@
+.star-rating button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/*.star{*/
+/*    font-size: 30px;*/
+/*}*/
+
+/*.onStar {*/
+/*    color: orange;*/
+/*}*/
+/*.offStar {*/
+/*    color: #000;*/
+/*}*/

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<!--    <div class="form">-->
+<!--        <form action="../XuLyLogin.aspx" method="post">-->
+<!--            <table>-->
+<!--                <tr>-->
+<!--                    <td style="padding-right: 30px">Username</td>-->
+<!--                    <td><input type="text" name="user" id="user"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Password</td>-->
+<!--                    <td><input type="password" name="pass" id="pass"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td></td>-->
+<!--                    <td><input type="submit" value="Login"></td>-->
+<!--                </tr>-->
+<!--            </table>-->
+<!--        </form>-->
+<!--    </div>-->
+
+
+    <div class="contact-form form">
+        <img alt="" class="avatar" src="https://i.postimg.cc/zDyt7KCv/a1.jpg">
+        <h2>Admin Login</h2>
+        <form action="../XuLyLogin.aspx" method="post" id="formLogin" onsubmit="return toSubmit();">
+            <p>Username</p><input placeholder="Enter Username" type="text" name="user" id="user">
+            <p>Password</p><input placeholder="Enter Password" type="password" name="pass" id="pass"> <input type="submit" value="Sign in" id="submit">
+        </form>
+        <a href="../home.aspx">Back to Home</a>
+        <div id="ses"></div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
