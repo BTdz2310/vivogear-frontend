@@ -6,7 +6,7 @@ import socket from "../../socketClient";
 export const getAllOrder = createAsyncThunk(
     'order/getAllOrder',
     async (data, thunkAPI) => {
-        const response = await fetch('http://localhost:5001/api/order', {
+        const response = await fetch('https://vivogear-backend.onrender.com/api/order', {
             method: 'GET',
             headers: {
                 // "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export const getAllOrder = createAsyncThunk(
 export const getAllAdminOrder = createAsyncThunk(
     'order/getAllAdminOrder',
     async (data, thunkAPI) => {
-        const response = await fetch('http://localhost:5001/api/orders', {
+        const response = await fetch('https://vivogear-backend.onrender.com/api/orders', {
             method: 'GET',
             headers: {
                 // "Content-Type": "application/json",

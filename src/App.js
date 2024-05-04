@@ -117,7 +117,7 @@ function App() {
     useEffect( () => {
         const check = async()=>{
             if(getCookie('token')){
-                const response = await fetch('http://localhost:5001/api/credential', {
+                const response = await fetch('https://vivogear-backend.onrender.com/api/credential', {
                     method: 'GET',
                     headers: {
                         // "Content-Type": "application/json",

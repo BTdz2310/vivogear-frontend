@@ -14,7 +14,7 @@ const SocialLogin = () => {
 
     const loginToGoogle = useGoogleLogin({
         onSuccess:  async (tokenResponse) => {
-            const response = await fetch(`http://localhost:5001/api/google/login?accessToken=${tokenResponse.access_token}`);
+            const response = await fetch(`https://vivogear-backend.onrender.com/api/google/login?accessToken=${tokenResponse.access_token}`);
             const json = await response.json();
             if(response.status===200){
                 setCookie('token', json.access_token, 1);

@@ -4,7 +4,7 @@ import {addType} from "../types/typesSlice";
 const api_url = "http://localhost:3600/products";
 
 export const createProducts = createAsyncThunk('products/createProducts',async (data, thunkAPI)=>{
-    const response = await fetch('http://localhost:5001/api/product', {
+    const response = await fetch('https://vivogear-backend.onrender.com/api/product', {
         method: 'POST',
         headers: {
             // "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export const createProducts = createAsyncThunk('products/createProducts',async (
 })
 
 export const getAllProducts = createAsyncThunk('products/getAllProducts',async (data, thunkAPI)=>{
-    const response = await fetch('http://localhost:5001/api/product', {
+    const response = await fetch('https://vivogear-backend.onrender.com/api/product', {
         method: 'GET',
         headers: {
             // "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export const getAllProducts = createAsyncThunk('products/getAllProducts',async (
 })
 
 export const createInventory = createAsyncThunk('products/createInventory',async (data, thunkAPI)=>{
-    const response = await fetch('http://localhost:5001/api/inventory', {
+    const response = await fetch('https://vivogear-backend.onrender.com/api/inventory', {
         method: 'POST',
         headers: {
             // "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export const createInventory = createAsyncThunk('products/createInventory',async
 })
 
 export const getAllInventory = createAsyncThunk('products/getAllInventory',async (data, thunkAPI)=>{
-    const response = await fetch('http://localhost:5001/api/inventory', {
+    const response = await fetch('https://vivogear-backend.onrender.com/api/inventory', {
         method: 'GET',
         headers: {
             // "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export const getAllInventory = createAsyncThunk('products/getAllInventory',async
 })
 
 export const changeProduct = createAsyncThunk('products/changeProduct',async (data, thunkAPI)=>{
-    const response = await fetch(`http://localhost:5001/api/product/${data.id}`, {
+    const response = await fetch(`https://vivogear-backend.onrender.com/api/product/${data.id}`, {
         method: 'PUT',
         headers: {
             // "Content-Type": "application/json",
@@ -71,7 +71,7 @@ export const changeProduct = createAsyncThunk('products/changeProduct',async (da
 
 export const deleteProduct = createAsyncThunk('products/deleteProduct',async (data, thunkAPI)=>{
     console.log(typeof data)
-    const response = await fetch(`http://localhost:5001/api/product/${data}`, {
+    const response = await fetch(`https://vivogear-backend.onrender.com/api/product/${data}`, {
         method: 'DELETE',
         headers: {
             // "Content-Type": "application/json",
@@ -84,7 +84,7 @@ export const deleteProduct = createAsyncThunk('products/deleteProduct',async (da
 
 export const changeInventory = createAsyncThunk('products/changeInventory',async (data, thunkAPI)=>{
     console.log(data)
-    const response = await fetch(`http://localhost:5001/api/inventory/${data.id}`, {
+    const response = await fetch(`https://vivogear-backend.onrender.com/api/inventory/${data.id}`, {
         method: 'PUT',
         headers: {
             // "Content-Type": "application/json",

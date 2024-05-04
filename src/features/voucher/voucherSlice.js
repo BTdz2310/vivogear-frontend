@@ -2,7 +2,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import socket from "../../socketClient";
 
 export const getAllVoucher = createAsyncThunk('voucher/getAllVoucher',async (data, thunkAPI)=>{
-    const response = await fetch('http://localhost:5001/api/voucher', {
+    const response = await fetch('https://vivogear-backend.onrender.com/api/voucher', {
         method: 'GET',
         headers: {
             // "Content-Type": "application/json",

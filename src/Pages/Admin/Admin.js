@@ -21,7 +21,7 @@ function Admin(){
 
     useEffect( ()=>{
         const checkAdmin = async () => {
-            const response = await fetch('http://localhost:5001/api/checkAdmin', {
+            const response = await fetch('https://vivogear-backend.onrender.com/api/checkAdmin', {
                 method: 'GET',
                 headers: {
                     // "Content-Type": "application/json",

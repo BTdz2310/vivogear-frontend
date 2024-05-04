@@ -3,7 +3,7 @@ import {createProducts} from "../products/productsSlice";
 import {getCookie} from "../../utils/cookie";
 
 export const getCartUser = createAsyncThunk('cartSlice/getCartUser',async (data, thunkAPI)=>{
-    const response = await fetch('http://localhost:5001/api/userCart', {
+    const response = await fetch('https://vivogear-backend.onrender.com/api/userCart', {
         method: 'GET',
         headers: {
             // "Content-Type": "application/json",
@@ -17,7 +17,7 @@ export const getCartUser = createAsyncThunk('cartSlice/getCartUser',async (data,
 })
 
 export const createCartUser = createAsyncThunk('cartSlice/createCartUser',async (data, thunkAPI)=>{
-    const response = await fetch('http://localhost:5001/api/userCart', {
+    const response = await fetch('https://vivogear-backend.onrender.com/api/userCart', {
         method: 'POST',
         headers: {
             // "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export const createCartUser = createAsyncThunk('cartSlice/createCartUser',async 
 })
 
 export const updateCartUser = createAsyncThunk('cartSlice/updateCartUser',async (data, thunkAPI)=>{
-    const response = await fetch('http://localhost:5001/api/userCart', {
+    const response = await fetch('https://vivogear-backend.onrender.com/api/userCart', {
         method: 'PUT',
         headers: {
             // "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export const updateCartUser = createAsyncThunk('cartSlice/updateCartUser',async 
 })
 
 export const deleteCartUser = createAsyncThunk('cartSlice/deleteCartUser',async (data, thunkAPI)=>{
-    const response = await fetch('http://localhost:5001/api/userCart', {
+    const response = await fetch('https://vivogear-backend.onrender.com/api/userCart', {
         method: 'DELETE',
         headers: {
             // "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export const deleteCartUser = createAsyncThunk('cartSlice/deleteCartUser',async 
 })
 
 export const clearCartUser = createAsyncThunk('cartSlice/clearCartUser',async (data, thunkAPI)=>{
-    const response = await fetch('http://localhost:5001/api/clearCart', {
+    const response = await fetch('https://vivogear-backend.onrender.com/api/clearCart', {
         method: 'GET',
         headers: {
             // "Content-Type": "application/json",

@@ -7,7 +7,7 @@ import socket from "../../socketClient";
 export const login = createAsyncThunk(
     'auth/login',
     async (data, thunkAPI) => {
-        const response = await fetch('http://localhost:5001/api/login', {
+        const response = await fetch('https://vivogear-backend.onrender.com/api/login', {
             method: 'POST',
             headers: {
                 // "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export const login = createAsyncThunk(
 export const updateUser = createAsyncThunk(
     'auth/updateUser',
     async (data, thunkAPI) => {
-        const response = await fetch(`http://localhost:5001/api/profile`, {
+        const response = await fetch(`https://vivogear-backend.onrender.com/api/profile`, {
             method: 'POST',
             headers: {
                 // "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export const updateUser = createAsyncThunk(
 export const changePassword = createAsyncThunk(
     'auth/changePassword',
     async (data, thunkAPI) => {
-        const response = await fetch(`http://localhost:5001/api/changePassword`, {
+        const response = await fetch(`https://vivogear-backend.onrender.com/api/changePassword`, {
             method: 'POST',
             headers: {
                 // "Content-Type": "application/json",
@@ -68,7 +68,7 @@ export const changePassword = createAsyncThunk(
 export const addVoucherUser = createAsyncThunk(
     'auth/addVoucherUser',
     async (data, thunkAPI) => {
-        const response = await fetch(`http://localhost:5001/api/addVoucherUser`, {
+        const response = await fetch(`https://vivogear-backend.onrender.com/api/addVoucherUser`, {
             method: 'POST',
             headers: {
                 // "Content-Type": "application/json",
@@ -87,7 +87,7 @@ export const addVoucherUser = createAsyncThunk(
 
 export const checkedVoucher = createAsyncThunk('auth/useVoucher',async (data, thunkAPI)=>{
     console.log(data)
-    const response = await fetch(`http://localhost:5001/api/useVoucher`, {
+    const response = await fetch(`https://vivogear-backend.onrender.com/api/useVoucher`, {
         method: 'POST',
         headers: {
             // "Content-Type": "application/json",

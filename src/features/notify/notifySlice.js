@@ -5,7 +5,7 @@ import {getCartUser} from "../cart/cartSlice";
 export const loadNotity = createAsyncThunk(
     'notify/loadNotify',
     async (data, thunkAPI) => {
-        const response = await fetch('http://localhost:5001/api/notify', {
+        const response = await fetch('https://vivogear-backend.onrender.com/api/notify', {
             method: 'GET',
             headers: {
                 // "Content-Type": "application/json",

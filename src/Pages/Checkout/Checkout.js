@@ -23,7 +23,7 @@ import store from "../../store";
 import {getCookie} from "../../utils/cookie";
 
 const checkAddress = (address) => {
-    console.log('->>ADD',arr, address.length)
+    // console.log('->>ADD',arr, address.length)
 
     const arr = address.split(' - ');
     if(arr.length!==4) return true;

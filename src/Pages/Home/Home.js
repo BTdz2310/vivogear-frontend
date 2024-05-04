@@ -18,7 +18,7 @@ function Home(){
     useEffect(() => {
         if(codeParam){
             getAccessTokenGithub(codeParam).then(async (resp) => {
-                const response = await fetch(`http://localhost:5001/api/github/login?accessToken=${resp.access_token}`);
+                const response = await fetch(`https://vivogear-backend.onrender.com/api/github/login?accessToken=${resp.access_token}`);
                 const json = await response.json();
                 console.log(json)
                 if(response.status===200){

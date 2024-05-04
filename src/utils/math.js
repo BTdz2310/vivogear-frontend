@@ -56,7 +56,7 @@ export const checkNImg = (img) => {
 }
 
 export const getAccessTokenGithub = async (code) => {
-    const response = await fetch(`http://localhost:5001/api/github/accessToken?code=${code}`);
+    const response = await fetch(`https://vivogear-backend.onrender.com/api/github/accessToken?code=${code}`);
     console.log('RE<<<>>>>>>>',response)
     const json = await response.json();
     return json;
