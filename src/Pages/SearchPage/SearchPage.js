@@ -93,62 +93,62 @@ function SearchPage (){
                 </section>
                 <section className="search-page__right">
                     {/*<SearchDisplay data={arrayChoseProduct[type]}/>*/}
-                    <SearchDisplay data={Object.keys(fitProducts).length>0?Object.keys(fitProducts).map(key=>fitProducts[key]):[]} type={type}/>
+                    <SearchDisplay showScale={showScale} setShowScale={setShowScale} data={Object.keys(fitProducts).length>0?Object.keys(fitProducts).map(key=>fitProducts[key]):[]} type={type}/>
                     {/*{selectedVoucher[voucherParam]?(<SearchDisplay data={voucherParam?selectedVoucher[voucherParam].products.map(key => allProducts[key]):fitProducts} scaleAdd={scaleAdd}/>):undefined}*/}
                 </section>
             </div>
-            <div className="search-page__compare">
-                <div className="search-page__compare--button" onClick={handleShowScale}>
-                    <i className="fa-solid fa-scale-balanced">
-                        <span className='countScale' style={{color: 'white'}}>{checkCount()}</span>
-                    </i>
-                </div>
+            {/*<div className="search-page__compare">*/}
+            {/*    <div className="search-page__compare--button" onClick={handleShowScale}>*/}
+            {/*        <i className="fa-solid fa-scale-balanced">*/}
+            {/*            <span className='countScale' style={{color: 'white'}}>{checkCount()}</span>*/}
+            {/*        </i>*/}
+            {/*    </div>*/}
 
-                <div className="search-page__compare--menu">
-                    <Link to={`/product/${scale1}`} className="search-page__compare--item" style={{
-                        backgroundImage: scale1?`url(${allProducts[scale1].img})`:'unset',
-                        backgroundSize: "contain",
-                        backgroundRepeat: 'no-repeat',
-                        height: '42px',
-                        width: '42px',
-                        cursor: scale1?'pointer':'default',
-                        pointerEvents: scale1?'unset':'none'
-                    }}>
-                        {scale1&&(
-                            <div className="search-page__compare--delete" onClick={(e)=>{
-                                e.preventDefault();
-                                setScale1(null)
-                            }}>
-                                <i className="fa-solid fa-x"></i>
-                            </div>
-                        )}
-                    </Link>
-                    {/*<Link to={`/product/${scale2}`}>*/}
-                        <Link to={`/product/${scale2}`} className="search-page__compare--item" style={{
-                            backgroundImage: scale2?`url(${allProducts[scale2].img})`:'unset',
-                            // backgroundColor: scale2?'unset':'darkslategrey',
-                            backgroundSize: "contain",
-                            backgroundRepeat: 'no-repeat',
-                            height: '42px',
-                            width: '42px',
-                            cursor: scale2?'pointer':'default',
-                            pointerEvents: scale2?'unset':'none'
-                        }}>
-                            {scale2&&(
-                                <div className="search-page__compare--delete" onClick={(e)=> {
-                                    e.preventDefault();
-                                    setScale2(null)
-                                }}>
-                                    <i className="fa-solid fa-x"></i>
-                                </div>
-                            )}
-                        </Link>
-                    {/*</Link>*/}
-                </div>
-                <div className="search-page__compare--hide">
+            {/*    <div className="search-page__compare--menu">*/}
+            {/*        <Link to={`/product/${scale1}`} className="search-page__compare--item" style={{*/}
+            {/*            backgroundImage: scale1?`url(${allProducts[scale1].img})`:'unset',*/}
+            {/*            backgroundSize: "contain",*/}
+            {/*            backgroundRepeat: 'no-repeat',*/}
+            {/*            height: '42px',*/}
+            {/*            width: '42px',*/}
+            {/*            cursor: scale1?'pointer':'default',*/}
+            {/*            pointerEvents: scale1?'unset':'none'*/}
+            {/*        }}>*/}
+            {/*            {scale1&&(*/}
+            {/*                <div className="search-page__compare--delete" onClick={(e)=>{*/}
+            {/*                    e.preventDefault();*/}
+            {/*                    setScale1(null)*/}
+            {/*                }}>*/}
+            {/*                    <i className="fa-solid fa-x"></i>*/}
+            {/*                </div>*/}
+            {/*            )}*/}
+            {/*        </Link>*/}
+            {/*        /!*<Link to={`/product/${scale2}`}>*!/*/}
+            {/*            <Link to={`/product/${scale2}`} className="search-page__compare--item" style={{*/}
+            {/*                backgroundImage: scale2?`url(${allProducts[scale2].img})`:'unset',*/}
+            {/*                // backgroundColor: scale2?'unset':'darkslategrey',*/}
+            {/*                backgroundSize: "contain",*/}
+            {/*                backgroundRepeat: 'no-repeat',*/}
+            {/*                height: '42px',*/}
+            {/*                width: '42px',*/}
+            {/*                cursor: scale2?'pointer':'default',*/}
+            {/*                pointerEvents: scale2?'unset':'none'*/}
+            {/*            }}>*/}
+            {/*                {scale2&&(*/}
+            {/*                    <div className="search-page__compare--delete" onClick={(e)=> {*/}
+            {/*                        e.preventDefault();*/}
+            {/*                        setScale2(null)*/}
+            {/*                    }}>*/}
+            {/*                        <i className="fa-solid fa-x"></i>*/}
+            {/*                    </div>*/}
+            {/*                )}*/}
+            {/*            </Link>*/}
+            {/*        /!*</Link>*!/*/}
+            {/*    </div>*/}
+            {/*    <div className="search-page__compare--hide">*/}
 
-                </div>
-            </div>
+            {/*    </div>*/}
+            {/*</div>*/}
             <Modal show={showScale} onHide={handleClose} className='md-modal'>
                 <Modal.Header>
                     <Modal.Title>So Sánh Sản Phẩm</Modal.Title>

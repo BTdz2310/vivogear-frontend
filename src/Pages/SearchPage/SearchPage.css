@@ -50,7 +50,7 @@
 
 .search-page .search-page__compare{
     position: fixed;
-    bottom: 40px;
+    bottom: 150px;
     right: 40px;
 }
 
@@ -83,12 +83,13 @@
 }
 
 .search-page__compare--menu{
-    height: 56px;
-    width: 170px;
+    /*height: 56px;*/
+    /*width: 170px;*/
     background-color: rgb(33, 37, 41);
     position: absolute;
-    top: -65px;
-    right: 40px;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
 
 
     /*position: fixed;*/
@@ -100,12 +101,21 @@
     z-index: 10;
     display: flex;
     align-items: center;
+    /*flex-direction: column;*/
     gap: 16px;
-    padding-left: 20px;
+    padding: 10px 20px 10px 10px;
 
     visibility: hidden;
-    transition:  .3s linear;
-    transform: translateX(140px);
+    /*transition:  .1s linear;*/
+    /*opacity: 0;*/
+    /*transform: translateX(140px);*/
+}
+
+.search-display__scale--button:hover .search-page__compare--menu{
+    visibility: visible;
+    /*opacity: 1;*/
+    /*transition: .1s linear;*/
+    /*transform: translateX(0px);*/
 }
 
 .search-page__compare--item{
@@ -146,22 +156,16 @@
 }
 
 .countScale{
-    font-size: 12px;
+    font-size: 10px;
     position: absolute;
     background-color: crimson;
     border-radius: 50%;
     /*padding: 4px;*/
     /*height: 16px;*/
-    width: 24px;
-    top: 12px;
-    right: -12px;
-    line-height: 24px;
-}
-
-.search-page__compare--button:hover+div, .search-page__compare--menu:hover{
-    visibility: visible;
-    transition: .3s linear;
-    transform: translateX(0px);
+    width: 16px;
+    top: -8px;
+    right: -8px;
+    line-height: 16px;
 }
 
 .search-page__compare--menu a{
@@ -222,8 +226,8 @@ tr{
 
 .search-display__task{
     display: flex;
-    flex-direction: row;
-    gap: 30px;
+    flex-direction: column;
+    gap: 20px;
     padding: 20px 0;
     margin-bottom: 20px;
     border-bottom: 1px solid #EBEEF2;
@@ -241,7 +245,7 @@ tr{
 }
 
 .search-display__sort select{
-    padding: 6px 12px;
+    padding: 12px 10px;
     border: 1px solid #8f9297;
     border-radius: 12px;
 }
@@ -251,9 +255,9 @@ tr{
     gap: 10px;
     align-items: center;
     cursor: pointer;
-    padding: 4.5px 12px;
+    padding: 10px 20px;
     border: 1px solid #8f9297;
-    border-radius: 12px;
+    border-radius: 16px;
 }
 
 .search-display__filter--button i{
@@ -399,4 +403,10 @@ button.filter-modal__button--selected:hover{
     border-radius: 14px;
     position: absolute;
     z-index: 1;
+}
+
+.search-display__formbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

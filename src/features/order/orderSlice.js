@@ -67,6 +67,7 @@ export const orderSlice = createSlice({
         //socket
         placedOrder: (state, action) => {
             socket.emit('CEOPlaced', action.payload)
+            console.log(action.payload)
         },
         handleOrder: (state, action) => {
             socket.emit('CEOHandle', action.payload)

@@ -21,6 +21,10 @@ import {useNavigate} from "react-router-dom";
 import AddressInput from "../../Component/AddressInput/AddressInput";
 import store from "../../store";
 import {getCookie} from "../../utils/cookie";
+import {loadStripe} from '@stripe/stripe-js';
+import {Elements, PaymentRequestButtonElement} from '@stripe/react-stripe-js'
+import Payment from "../../Component/Payment/Payment";
+
 
 const checkAddress = (address) => {
     // console.log('->>ADD',arr, address.length)
@@ -50,8 +54,8 @@ const compare = (a, b) => {
 
 const Checkout = () => {
     const [quantity, setQuantity] = useState(0)
-    const selectedCart = useSelector(selectCart);
     const selectedInventory = useSelector(selectInventory);
+    const selectedCart = useSelector(selectCart);
     const selectedUser = useSelector(selectUser);
     const selectedVoucher = useSelector(selectVoucher)
     const [total, setTotal] = useState(0);
@@ -67,13 +71,37 @@ const Checkout = () => {
     const [showAddress, setShowAddress] = useState(false);
     const [showVoucher, setShowVoucher] = useState(false);
     const [typeVoucher, setTypeVoucher] = useState('orders');
+    const [promiseStripe, setPromiseStripe] = useState(null);
+    const [clientSecret, setClientSecret] = useState('');
+    const [showPayment, setShowPayment] = useState(false);
 
     const handleCloseAddress = () => setShowAddress(false);
     const handleShowAddress = () => setShowAddress(true);
 
     const handleCloseVoucher = () => setShowVoucher(false);
     const handleShowVoucher = () => setShowVoucher(true);
+
+    const handleClosePayment = () => setShowPayment(false);
+    const handleShowPayment = () => setShowPayment(true);
+
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const load = async () => {
+            const stripe = await loadStripe('pk_test_51PMD5GP3TCD9lpTDDjUtmbCVK9ZjLCXQy6ZQ3rC2h3b04hV0pjTjOEz6L97f1ZpQOb2OZUoBiIFE8XesMjNPyNhN00Rfftatfb');
+            setPromiseStripe(stripe);
+        }
+        load();
+    }, []);
+
+    // useEffect(() => {
+    //     const load = async () => {
+    //         const stripe = await fetch('http://localhost:5001/api/secretStripe')
+    //         const json = await stripe.json();
+    //         setClientSecret(json.id);
+    //     }
+    //     load();
+    // }, []);
 
     useEffect(()=>{
         if(!getCookie('token')){
@@ -181,6 +209,30 @@ const Checkout = () => {
             return;
         }
 
+
+        // console.log('>>>>VOUWEG', voucher1)
+
+
+        const response = await fetch('http://vivogear-backend.onrender.com/api/create-payment-intent', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                amount: totalAV
+            })
+        })
+
+        const json = await response.json();
+
+        setClientSecret(json.clientSecret);
+
+        setShowPayment(true);
+
+        return;
+    }
+
+    const cartPayment = () => {
         for(let i=0; i<selectedCart.length; i++){
             if(selectedCart[i].quantity>selectedInventory[selectedCart[i].idSP][selectedCart[i].idInv].quantity){
                 toast.error(`Sản Phẩm ${selectedCart[i].name} Không Đủ Số Lượng. Vui Lòng Cập Nhật Lại. Hiện Tại: ${selectedCart[i].quantity} - Khả Dụng ${selectedInventory[selectedCart[i].idSP][selectedCart[i].idInv].quantity}`);
@@ -191,10 +243,8 @@ const Checkout = () => {
         const voucher1 = [];
         if(voucherO) voucher1.push(voucherO)
         if(voucherP) voucher1.push(voucherP)
-        // console.log('>>>>VOUWEG', voucher1)
 
-
-        await dispatch(placedOrder({
+        return {
             user: selectedUser._id,
             products: selectedCart.map(item=>{
                 return {
@@ -211,10 +261,7 @@ const Checkout = () => {
             voucher: voucher1,
             phone,
             address
-        }))
-
-        toast.success('Đặt Đơn Hàng Thành Công')
-        navigate('/user/purchase')
+        }
     }
 
     const handleInfo = async () => {
@@ -394,6 +441,11 @@ const Checkout = () => {
                 </Modal.Body>
             </Modal>
 
+            {clientSecret&&promiseStripe&&(
+                <Elements stripe={promiseStripe} options={{clientSecret}}>
+                    <Payment show={showPayment} onHide={handleClosePayment} onShow={handleShowPayment} cartBuy={cartPayment()}/>
+                </Elements>
+            )}
 
 </>
     );

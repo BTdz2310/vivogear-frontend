@@ -31,6 +31,9 @@ import socket from "./socketClient";
 import {loadReview, newReview} from "./features/review/reviewSlice";
 import AboutMe from "./Component/AboutMe/AboutMe";
 import Success from "./Component/Success/Success";
+import ChatBox from "./Component/ChatBox/ChatBox";
+import Spinner from "react-bootstrap/Spinner";
+import store from "./store";
 
 // export const socket = io('http://localhost:5001');
 
@@ -54,6 +57,8 @@ function App() {
 
     const selectedUser = useSelector(selectUser);
 
+    const [isLoading, setIsLoading] = useState(false);
+
     // const path = useReactPath();
     //
     // useEffect(() => {
@@ -68,6 +73,10 @@ function App() {
         // socket.emit('exampleEvent', { data: 'Hello from client' });
         socket.connect();
         // console.log('>>>>TOKEN', getCookie('token'))
+
+        socket.on("connect", () => {
+            console.log('>>>SOCK',socket.id);
+        });
 
         socket.on('SEOSuccess', (orderRtn)=>{
             dispatch(updateVoucherUser(orderRtn.voucher))
@@ -99,9 +108,9 @@ function App() {
             dispatch(rtnVoucher(voucher));
         })
 
-        return () => {
-            socket.disconnect();
-        };
+        // return () => {
+        //     socket.disconnect();
+        // };
     }, []);
 
     useEffect(() => {
@@ -171,9 +180,12 @@ function App() {
         }
     }, [])
 
-    useEffect(()=>{
+    useEffect(async()=>{
+        setIsLoading(true);
         console.log('LOADDIIII')
-        dispatch(getAllInventory())
+        await dispatch(getAllInventory())
+        console.log('succes')
+        setIsLoading(false)
     }, [])
 
     useEffect(()=>{
@@ -203,6 +215,13 @@ function App() {
         }
     }, [])
 
+    if(isLoading) return (
+        <div className='__loading'>
+            <Spinner />
+            <p>Chờ Máy Chủ Backend Khởi Động Lại. Có Thể Mất Đến 50 Giây</p>
+        </div>
+    )
+
     return (
         <div className="App">
             <BrowserRouter>
@@ -228,6 +247,7 @@ function App() {
                     </Route>
                     <Route path='/checkout' element={<Checkout />}/>
                 </Routes>
+                {!store.getState().auth.auth.isAdmin&&<ChatBox />}
             </BrowserRouter>
             <ToastContainer
                 position="top-right"

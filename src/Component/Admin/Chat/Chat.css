@@ -1,0 +1,97 @@
+.__chat-admin{
+    height: calc(100vh - 70px);
+    display: flex;
+}
+
+.admin-task__action-left{
+    width: 25%;
+    padding: 40px 20px;
+    border-right: 4px solid rgb(31, 35, 50);
+}
+
+.admin-task__action-left p{
+    text-align: left;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    padding: 20px 40px;
+}
+
+.admin-task__action-right{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.__chat--user-selected{
+    background-color: #FAFAEB;
+    color: black!important;
+}
+
+.__chat--admin-head{
+    flex-shrink: 0;
+    padding: 20px;
+}
+
+.__chat--admin-main{
+    flex-grow: 2;
+    overflow: scroll;
+    border-top: 4px solid rgb(31, 35, 50);
+    border-bottom: 4px solid rgb(31, 35, 50);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.__chat--admin-head p{
+    color: white;
+    text-transform: uppercase;
+}
+
+.__chat--admin-footer{
+    flex-shrink: 0;
+    padding: 20px;
+    height: 160px;
+    display: flex;
+    gap: 24px;
+    align-items: end;
+}
+
+.__chat--admin-footer textarea{
+    border-radius: 16px;
+    border: none;
+    width: 100%;
+    background-color: #FAFAEB;
+    padding: 10px;
+    color: black;
+    height: 100%;
+}
+
+.__chat--admin-footer textarea:focus{
+    outline: none;
+}
+
+.__chat--admin-footer .__chat--admin-send{
+    padding: 16px 28px;
+    border: 1px solid #cacaca;
+    height: fit-content;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.__chat--admin-footer .__chat--admin-send i{
+    font-size: 20px;
+}
+
+.__chat--admin-side{
+    background-color: cadetblue;
+    color: black;
+    align-self: end;
+}
+
+.__chat--user-side{
+    background-color: #FAFAEB;
+    color: black;
+    align-self: start;
+}

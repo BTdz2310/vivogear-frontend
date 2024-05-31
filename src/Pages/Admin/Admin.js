@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {getAllAdminOrder} from "../../features/order/orderSlice";
 import {getCookie} from "../../utils/cookie";
+import Chat from "../../Component/Admin/Chat/Chat";
 
 function Admin(){
     const [data, setData] = useState([]);
@@ -55,12 +56,13 @@ function Admin(){
                 return <CreateVoucher />
             case 3:
                 return <UpdateProduct />
+            case 4:
+                return <Chat />
         }
     }
 
     return(
         <>
-            {console.log(task,'TASK')}
             <div className="admin-page__container">
                 <div className="admin-navbar__container">
                     <h1>Admin</h1>
@@ -69,6 +71,13 @@ function Admin(){
                         <div className="admin-navbar__button" id={task===0?'admin-navbar__button--selected':undefined}  onClick={()=>setTask(0)}>
                             <i className="fa-solid fa-clipboard-list"></i>
                             <p>Xử Lý Đơn Hàng</p>
+                        </div>
+                    </div>
+                    <div className="admin-navbar__item">
+                        <p className='admin-navbar__head'>Tin Nhắn<i className="fa-solid fa-comments" style={{marginLeft: '10px'}}></i></p>
+                        <div className="admin-navbar__button" id={task===4?'admin-navbar__button--selected':undefined} onClick={()=>setTask(4)}>
+                            <i className="fa-regular fa-comment"></i>
+                            <p>Tin Nhắn</p>
                         </div>
                     </div>
                     <div className="admin-navbar__item">
@@ -89,10 +98,6 @@ function Admin(){
                             <i className="fa-solid fa-gear"></i>
                             <p>Voucher</p>
                         </div>
-                        {/*<div className="admin-navbar__button">*/}
-                        {/*    <i className="fa-solid fa-gear"></i>*/}
-                        {/*    <p className='admin-navbar__button'>Sửa Sản Phẩm</p>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
                 <div className="admin-task__container">

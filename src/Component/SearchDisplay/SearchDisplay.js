@@ -1,5 +1,5 @@
 import React, {useState, useEffect, Fragment} from 'react';
-import {useSearchParams} from "react-router-dom";
+import {Link, useSearchParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {
     clickFilterBtn, selectFilter,
@@ -10,6 +10,9 @@ import {dataP} from "../../dataP";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import product from "../Product/Product";
+import {addScale, selectScale} from "../../features/scale/scaleSlice";
+import {selectProducts} from "../../features/products/productsSlice";
+import {toast} from "react-toastify";
 
 const propertyMap = {
     '<4': 'Dưới 4GB',
@@ -225,10 +228,23 @@ const checkPropertyString = (propertyValue, filterArr) => {
     }
 }
 
-function SearchDisplay({data, type}){
+function SearchDisplay({data, type, showScale, setShowScale}){
     const [sorting, setSorting] = useState('sort09');
     const [showFilter, setShowFilter] = useState(false);
     const selectedFilter = useSelector(selectFilter);
+
+    const [scale1, setScale1] = useState(null);
+    const [scale2, setScale2] = useState(null);
+
+    const selectedScale = useSelector(selectScale);
+    const allProducts = useSelector(selectProducts);
+
+    useEffect(()=>{
+        setScale1(selectedScale.scale1);
+        setScale2(selectedScale.scale2);
+    }, [selectedScale])
+
+
     // const selectedFitFilterPhone = useSelector(selectFilterPhone);
     const dispatch = useDispatch();
     const handleClickBtn = (property, value) => {
@@ -620,6 +636,23 @@ function SearchDisplay({data, type}){
         }
     }
 
+    const checkCount = () => {
+        if(!scale1&&!scale2) return '0';
+        else if(scale1&&scale2) return '2';
+        return '1';
+    }
+
+    const handleCloseScale = () => setShowScale(false);
+    const handleShowScale = () => {
+        if(checkCount()==='2') setShowScale(true)
+        else toast.warning('Bạn cần chọn 2 sản phẩm để so sánh !!!')
+    };
+
+    const scaleAdd = (id, e) => {
+        e.preventDefault();
+        dispatch(addScale(id));
+    }
+
     const handleClose = () => setShowFilter(false)
 
     const handleShow = () => setShowFilter(true)
@@ -628,28 +661,8 @@ function SearchDisplay({data, type}){
         <>
             {/*{console.log('>>>>DATADIS: ', data)}*/}
             <div className="search-display__task">
-                    <div className="search-display__filter">
-                        {/*{console.log('>>>MAP',Object.keys(selectedFilter[type]).filter(key=>selectedFilter[type][key].length>0))}*/}
-                        <div className="search-display__filter--list">
-                            {Object.keys(selectedFilter[type]).filter(key=>selectedFilter[type][key].length>0).map(key=>(
-                                <Fragment key={key}>
-                                    {/*console.log('KEYMAP',selectedFilter[type][key])*/}
-
-                                    {selectedFilter[type][key].map(value => (
-                                        <div className='tooltipFilter' key={`${key}-${value}`}>
-                                            <button className='search-display__button--selected' onClick={()=>handleClickBtn(key,value)}>{propertyMap[value]}</button>
-                                            <div className="tooltipTextFilter">{typeMap[key]}</div>
-                                        </div>
-                                    ))}
-                                </Fragment>
-                            ))}
-                        </div>
-                    </div>
+                <div className="search-display__formbar">
                     <div className="search-display__action">
-                        <div>
-                            <p>{`${fitFilterProduct(data).length} sản phẩm`}</p>
-                            {/*{console.log('>>LENGTH', data.length)}*/}
-                        </div>
                         <div>
                             <div className="search-display__filter--button" onClick={handleShow}>
                                 {/*<i className="fa-solid fa-filter"></i>*/}
@@ -665,7 +678,78 @@ function SearchDisplay({data, type}){
                                 <option name='sortProduct' value="sortZA">Từ Z-A</option>
                             </select>
                         </div>
+                        <div style={{paddingLeft: '10px'}}>
+                            <p>{`${fitFilterProduct(data).length} sản phẩm`}</p>
+                            {/*{console.log('>>LENGTH', data.length)}*/}
+                        </div>
                     </div>
+                    <div className='search-display__scale--button' style={{backgroundColor: 'rgb(33, 37, 41)', color: 'white', position: 'relative', borderRadius: '16px'}}>
+                        <div className='search-display__filter--button' onClick={handleShowScale}>
+                            <p style={{zIndex: '100'}}>So Sánh</p>
+                            <i className="fa-solid fa-scale-balanced" style={{fontSize: '16px', position: 'relative'}}>
+                                <span className='countScale' style={{color: 'white'}}>{checkCount()}</span>
+                            </i>
+                        </div>
+                        <div className="search-page__compare--menu">
+                            <Link to={`/product/${scale1}`} className="search-page__compare--item" style={{
+                                backgroundImage: scale1?`url(${allProducts[scale1].img})`:'unset',
+                                backgroundSize: "contain",
+                                backgroundRepeat: 'no-repeat',
+                                height: '42px',
+                                width: '42px',
+                                cursor: scale1?'pointer':'default',
+                                pointerEvents: scale1?'unset':'none'
+                            }}>
+                                {scale1&&(
+                                    <div className="search-page__compare--delete" onClick={(e)=>{
+                                        e.preventDefault();
+                                        setScale1(null)
+                                    }}>
+                                        <i className="fa-solid fa-x"></i>
+                                    </div>
+                                )}
+                            </Link>
+                            {/*<Link to={`/product/${scale2}`}>*/}
+                            <Link to={`/product/${scale2}`} className="search-page__compare--item" style={{
+                                backgroundImage: scale2?`url(${allProducts[scale2].img})`:'unset',
+                                // backgroundColor: scale2?'unset':'darkslategrey',
+                                backgroundSize: "contain",
+                                backgroundRepeat: 'no-repeat',
+                                height: '42px',
+                                width: '42px',
+                                cursor: scale2?'pointer':'default',
+                                pointerEvents: scale2?'unset':'none'
+                            }}>
+                                {scale2&&(
+                                    <div className="search-page__compare--delete" onClick={(e)=> {
+                                        e.preventDefault();
+                                        setScale2(null)
+                                    }}>
+                                        <i className="fa-solid fa-x"></i>
+                                    </div>
+                                )}
+                            </Link>
+                            {/*</Link>*/}
+                        </div>
+                    </div>
+                </div>
+                <div className="search-display__filter">
+                    {/*{console.log('>>>MAP',Object.keys(selectedFilter[type]).filter(key=>selectedFilter[type][key].length>0))}*/}
+                    <div className="search-display__filter--list">
+                        {Object.keys(selectedFilter[type]).filter(key=>selectedFilter[type][key].length>0).map(key=>(
+                            <Fragment key={key}>
+                                {/*console.log('KEYMAP',selectedFilter[type][key])*/}
+
+                                {selectedFilter[type][key].map(value => (
+                                    <div className='tooltipFilter' key={`${key}-${value}`}>
+                                        <button className='search-display__button--selected' onClick={()=>handleClickBtn(key,value)}>{propertyMap[value]}</button>
+                                        <div className="tooltipTextFilter">{typeMap[key]}</div>
+                                    </div>
+                                ))}
+                            </Fragment>
+                        ))}
+                    </div>
+                </div>
             </div>
             <section id="items-list">
                 <ListProducts data={fitFilterProduct(data)} type="InSearch" same={false} sort={sorting}/>

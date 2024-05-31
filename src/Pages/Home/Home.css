@@ -71,7 +71,7 @@
 
 .home-page__slogan>div a{
     position: relative;
-    z-index: 10;
+    /*z-index: 10;*/
     padding: 20px 40px;
     text-transform: uppercase;
     letter-spacing: 3.2px;
